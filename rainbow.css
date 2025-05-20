@@ -1,0 +1,19 @@
+.controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  font-family: sans-serif;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 10;
+}
+
+.controls input[type="range"] {
+  width: 100px;
+}
