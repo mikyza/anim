@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rainbow Animation</title>
+  <link rel="stylesheet" href="rainbow.css" />
+</head>
+<body>
+  <div class="center">
+    <ul id="rainbow">
+      <li class="one"></li>
+      <li class="two"></li>
+      <li class="three"></li>
+      <li class="four"></li>
+      <li class="five"></li>
+      <li class="six"></li>
+      <li class="seven"></li>
+    </ul>
+  </div>
+
+  <div class="controls">
+    <button id="toggle">Pause</button>
+    <label>
+      Speed:
+      <input type="range" id="speed" min="1" max="10" value="5" />
+    </label>
+  </div>
+
+  <script>
+    const toggleButton = document.getElementById('toggle');
+    const speedSlider = document.getElementById('speed');
+    const rings = document.querySelectorAll('ul li');
+
+    let isAnimating = true;
+
+    toggleButton.addEventListener('click', () => {
+      isAnimating = !isAnimating;
+      rings.forEach(ring => {
+        ring.style.animationPlayState = isAnimating ? 'running' : 'paused';
+      });
+      toggleButton.textContent = isAnimating ? 'Pause' : 'Play';
+    });
+
+    speedSlider.addEventListener('input', () => {
+      const newSpeed = speedSlider.value;
+      rings.forEach(ring => {
+        ring.style.animationDuration = `${newSpeed}s`;
+      });
+    });
+  </script>
+</body>
+</html>
